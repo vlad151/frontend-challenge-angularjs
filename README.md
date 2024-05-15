@@ -8,9 +8,14 @@ Find Search endpoint documentation [here](https://unsplash.com/documentation#sea
 
 ### Frontend requirements:
 - Input field for search query.
-- Results view that display images in a grid.
+- Results view that display results in a grid.
 - Results must be displayed using pagination / lazy loading.
 - Any other features that you think is a **MUST** for great search experience, e.g. "No results found" view, sorting and etc.
+
+### How to deliver the solution:
+- Clone this project, setup your own GitHub repository and commit your code there.
+- Make sure to include a README file with instructions on how to run the app.
+- If it's a private repository, please add me as a collaborator (username: `gorilazish`).
 
 > ### Notes
 > - Free tier of Unsplash API has a rate limit of 50 requests per hour. You might want to save some mock responses while developing/testing.
