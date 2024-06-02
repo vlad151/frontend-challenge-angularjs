@@ -1,1 +1,41 @@
-<p>This is the partial for view 1.</p>
+<div ng-controller="View1Ctrl" flex-lg="80" flex-md="80" flex-xl="60" class="bodyContainer" layout="column">
+    <md-content layout-fill>
+        <div layout="row" flex-lg="80" flex-md="80" flex-xl="60" class="search" >
+            <md-input-container class="md-block flex" style="margin: 0;">
+                <label>Search Images</label>
+                <input ng-model="searchQuery" ng-keypress="checkEnter($event)">
+            </md-input-container>
+            <select ng-model="sortOption" class="md-block" >
+                <option value="relevant">Relevant</option>
+                <option value="latest">Latest</option>
+            </select>
+            <md-button class="md-raised md-primary" ng-click="searchImages()">Search</md-button>
+
+            
+        </div>
+
+        <div class="image-container">
+            <md-grid-list
+            md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-lg="4" md-cols-gt-md="4"
+            md-row-height-gt-md="1:1" md-row-height="2:2"
+            md-gutter="12px" md-gutter-gt-sm="8px">
+                <md-grid-tile class="image-grid" ng-repeat="image in images">
+                    <img ng-src="{{image.urls.small}}" alt="{{image.description}}">
+                    <md-grid-tile-footer ng-if="image.description">
+                        <h3>{{image.description}}</h3>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+            </md-grid-list>
+            <div layout="row" layout-align="center center">
+                <md-button class="md-raised md-primary" ng-click="loadMoreImages()" ng-if="currentPage <= totalPages" style="margin-top: 30px;"> 
+                    Load More
+                </md-button>
+            </div>
+            <div ng-if="images.length === 0 && searchCompleted">
+                <p>No results found.</p>
+            </div>
+        </div>
+
+        <md-progress-linear ng-show="searchInProgress" md-mode="indeterminate"></md-progress-linear>
+    </md-content>
+</div>
